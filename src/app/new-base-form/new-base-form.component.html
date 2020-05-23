@@ -1,0 +1,25 @@
+<div class="container">
+    <form #f="ngForm" (ngSubmit)="submit(f.value)" class="mt-5">
+        <div class="form-group">
+            <label for="B_Name">Base Name</label>
+            <input ngModel #B_Name="ngModel" type="text" class="form-control" name="B_Name" id="B_Name">
+        </div>
+        <div class="form-group">
+            <label for="Region">Region</label>
+            <input ngModel #Region="ngModel" type="text" class="form-control" name="Region" id="Region">
+        </div>
+        <div class="form-group">
+            <label for="city">City</label>
+            <input ngModel #city="ngModel" type="text" class="form-control" name="city" id="city">
+        </div>
+        <div class="form-group">
+            <label for="adress">Adress</label>
+            <input ngModel #adress="ngModel" type="text" class="form-control" name="adress" id="adress">
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input ngModel #phone="ngModel" type="text" class="form-control" name="phone" id="phone">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
