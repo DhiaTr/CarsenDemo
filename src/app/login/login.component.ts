@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'login',
@@ -8,12 +9,24 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent {
 
-  constructor(private auth: AuthService) { }
+  constructor(
+    private auth: AuthService,
+    private router: Router
+  ) { }
 
+  // form.controls.email.setErrors({ 'invalidMailorPass': true });
   submit(form) {
-    // this.auth.login(form).subscribe(result => console.log(result), err => console.log(err));
-    this.auth.login(form).subscribe(result => console.log(result));
-
+    console.log(form.form);
+    this.auth.login(form.value).subscribe(result => {
+      if (result)
+        this.router.navigate(['/home']);
+    },
+      (err: Response) => {
+        if (err.status === 400) {
+          form.form.setErrors({ 'invalidMailorPass': true });
+        }
+      });
   }
+
 
 }

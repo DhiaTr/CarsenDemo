@@ -11,12 +11,11 @@ export class BaseService {
   constructor(private http: HttpClient) { }
 
   add(baseInfo) {
-    const headerDict = {
-      'x-auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWM5MjY1NjVlMzVmNTIyZjhkNzk4NTMiLCJpYXQiOjE1OTAyNDA4NTQsImlzQWRtaW4iOnRydWV9.mlon4y0szZLcfPPQUZTlMWwLW30zwSZDJ9TdErKgink'
-    }
+    const token = localStorage.getItem('token');
     const requestOptions = {
-      headers: new Headers(headerDict),
+      headers: { 'x-auth-token': token },
     };
-    return this.http.post('http://localhost:3000/api/base', baseInfo, { headers: headerDict }).pipe(catchError(err => throwError('dsfsdf')));
+    return this.http.post('http://localhost:3000/api/base', baseInfo, requestOptions)
+      .pipe(catchError(err => throwError('dsfsdf')));
   }
 }
