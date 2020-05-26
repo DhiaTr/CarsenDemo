@@ -18,6 +18,7 @@
             <div *ngIf="password.errors && password.errors.required">Password is Required.</div>
             <div *ngIf="password.errors  && password.errors.minlength">Password should be minimum 5 characters.</div>
             <div *ngIf="f.form.errors?.invalidMailorPass">Invalid Email or Password.</div>
+            <div *ngIf="f.form.errors?.unknownError">Unknown Error occured.</div>
         </div>
     </form>
 </div>

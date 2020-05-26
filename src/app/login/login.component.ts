@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { invalidMailOrPassword } from '../common/invalid-mail-or-password';
 
 @Component({
   selector: 'login',
@@ -22,8 +23,10 @@ export class LoginComponent {
         this.router.navigate(['/home']);
     },
       (err: Response) => {
-        if (err.status === 400) {
+        if (err instanceof invalidMailOrPassword) {
           form.form.setErrors({ 'invalidMailorPass': true });
+        } else {
+          form.form.setErrors({ 'unknownError': true });
         }
       });
   }
