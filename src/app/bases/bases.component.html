@@ -2,13 +2,26 @@
     <p>
         <a routerLink="/newBase" class="btn btn-primary">new base</a>
     </p>
-    <!-- <table class="table">
+    <table class="table">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>City</th>
-                <th>Phone</th>
+                <th>Base Name</th>
+                <th>Region</th>
+                <th>city</th>
+                <th>address</th>
+                <th>phone</th>
+                <th></th>
             </tr>
         </thead>
-    </table> -->
+        <tbody>
+            <tr *ngFor="let b of bases">
+                <td>{{ b.B_Name }}</td>
+                <td>{{ b.Region }}</td>
+                <td>{{ b.city }}</td>
+                <td>{{ b.adress }}</td>
+                <td>{{ b.phone }}</td>
+                <td><a class="btn btn-secondary mr-2">Edit</a><a class="btn btn-danger">delete</a></td>
+            </tr>
+        </tbody>
+    </table>
 </div>

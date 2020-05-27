@@ -12,6 +12,16 @@ export class BaseService {
 
   constructor(private http: HttpClient) { }
 
+
+  getAll() {
+    const token = localStorage.getItem('token');
+    const requestOptions = {
+      headers: { 'x-auth-token': token },
+    };
+    return this.http.get('http://localhost:3000/api/base', requestOptions)
+      .pipe(catchError(this.handleError));
+  }
+
   add(baseInfo) {
     const token = localStorage.getItem('token');
     const requestOptions = {
