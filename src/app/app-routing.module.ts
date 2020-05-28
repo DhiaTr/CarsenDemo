@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'bases', component: BasesComponent },
+  { path: 'newBase/:id', component: NewBaseFormComponent },
   { path: 'newBase', component: NewBaseFormComponent }
 ];
 

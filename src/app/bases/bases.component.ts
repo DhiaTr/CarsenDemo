@@ -12,9 +12,17 @@ export class BasesComponent implements OnInit {
   constructor(private baseService: BaseService) { }
 
   ngOnInit() {
+    this.updateView();
+  }
+
+  updateView() {
     this.baseService.getAll().subscribe(result => {
       this.bases = result;
     });
+  }
+
+  delete(id) {
+    this.baseService.delete(id).subscribe(result => this.updateView());
   }
 
 }
