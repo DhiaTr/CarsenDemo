@@ -25,17 +25,23 @@ export class BaseService {
       .pipe(catchError(this.handleError));
   }
 
+  getOne(id) {
+    return this.http.get('http://localhost:3000/api/base/' + id, this.getHeader())
+      .pipe(catchError(this.handleError));
+  }
+
   getHeader() {
     const token = localStorage.getItem('token');
     return { headers: { 'x-auth-token': token } };
   }
 
   add(baseInfo) {
-    const token = localStorage.getItem('token');
-    const requestOptions = {
-      headers: { 'x-auth-token': token },
-    };
-    return this.http.post('http://localhost:3000/api/base', baseInfo, requestOptions)
+    return this.http.post('http://localhost:3000/api/base', baseInfo, this.getHeader())
+      .pipe(catchError(this.handleError));
+  }
+
+  update(id, baseInfo) {
+    return this.http.put('http://localhost:3000/api/base/' + id, baseInfo, this.getHeader())
       .pipe(catchError(this.handleError));
   }
 

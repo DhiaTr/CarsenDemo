@@ -5,7 +5,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { BasesComponent } from './bases/bases.component';
-import { NewBaseFormComponent } from './new-base-form/new-base-form.component';
+import { BaseFormComponent } from './base-form/base-form.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,8 +14,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'bases', component: BasesComponent },
-  { path: 'newBase/:id', component: NewBaseFormComponent },
-  { path: 'newBase', component: NewBaseFormComponent }
+  { path: 'newBase/:id', component: BaseFormComponent },
+  { path: 'newBase', component: BaseFormComponent }
 ];
 
 @NgModule({

@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { BasesComponent } from './bases/bases.component';
-import { NewBaseFormComponent } from './new-base-form/new-base-form.component';
+import { BaseFormComponent } from './base-form/base-form.component';
 import { AuthService } from './services/auth.service';
 import { BaseService } from './services/base.service';
 
@@ -24,7 +24,7 @@ import { BaseService } from './services/base.service';
     LoginComponent,
     SignupComponent,
     BasesComponent,
-    NewBaseFormComponent
+    BaseFormComponent
   ],
   imports: [
     BrowserModule,
