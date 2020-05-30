@@ -14,6 +14,8 @@ import { BasesComponent } from './bases/bases.component';
 import { BaseFormComponent } from './base-form/base-form.component';
 import { AuthService } from './services/auth.service';
 import { BaseService } from './services/base.service';
+import { AgentsComponent } from './agents/agents.component';
+import { AgentFormComponent } from './agent-form/agent-form.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { BaseService } from './services/base.service';
     LoginComponent,
     SignupComponent,
     BasesComponent,
-    BaseFormComponent
+    BaseFormComponent,
+    AgentsComponent,
+    AgentFormComponent
   ],
   imports: [
     BrowserModule,

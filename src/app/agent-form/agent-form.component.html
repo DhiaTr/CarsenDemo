@@ -1,0 +1,79 @@
+<div class="container">
+    <form #f="ngForm" (ngSubmit)="submit(f)" class="mt-5">
+        <div class="form-group">
+            <label for="B_Name">Base</label>
+            <select required ngModel #ID_Base="ngModel" class="form-control" name="ID_Base" id="ID_Base">
+                <option value="b._id" *ngFor="let b of bases"> {{ b.B_Name }} </option>
+            </select>
+            <div class="alert alert-danger mt-2" *ngIf="ID_Base.touched && ID_Base.invalid">
+                Base is required
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="FirstName">First Name</label>
+            <input required minlength="5" maxlength="150" ngModel #FirstName="ngModel" type="text" class="form-control"
+                name="FirstName" id="FirstName">
+            <div class="alert alert-danger mt-2" *ngIf="!FirstName.valid && FirstName.touched">
+                <div *ngIf="FirstName.errors?.required">FirstName Field is required.</div>
+                <div *ngIf="FirstName.errors?.minlength">FirstName should be minimum 5 characters.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="LastName">First Name</label>
+            <input required minlength="5" maxlength="150" ngModel #LastName="ngModel" type="text" class="form-control"
+                name="LastName" id="LastName">
+            <div class="alert alert-danger mt-2" *ngIf="!LastName.valid && LastName.touched">
+                <div *ngIf="LastName.errors?.required">LastName Field is required.</div>
+                <div *ngIf="LastName.errors?.minlength">LastName should be minimum 5 characters.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input required minlength="8" maxlength="12" ngModel #phone="ngModel" type="text" class="form-control"
+                name="phone" id="phone">
+            <div class="alert alert-danger mt-2" *ngIf="!phone.valid && phone.touched">
+                <div *ngIf="phone.errors?.required">phone Field is required.</div>
+                <div *ngIf="phone.errors?.minlength">phone should be minimum 5 characters.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input required minlength="10" maxlength="150" ngModel #email="ngModel" type="text" class="form-control"
+                name="email" id="email">
+            <div class="alert alert-danger mt-2" *ngIf="!email.valid && email.touched">
+                <div *ngIf="email.errors?.required">Email Field is required.</div>
+                <div *ngIf="email.errors?.minlength">Email should be minimum 10 characters.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="salary">Salary</label>
+            <input required min="0" max="100000" ngModel #salary="ngModel" type="text" class="form-control"
+                name="salary" id="salary">
+            <div class="alert alert-danger mt-2" *ngIf="!salary.valid && salary.touched">
+                <div *ngIf="salary.errors?.required">Salary Field is required.</div>
+                <div *ngIf="salary.errors?.minlength">Salary cant be less than 0</div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="f.invalid || f.errors">Submit</button>
+        <div class="alert alert-danger mt-2" *ngIf="f.submitted && f.errors">
+            <div *ngIf="f.errors && f.errors.invalidData">invalid data submitted.</div>
+            <div *ngIf="f.errors && f.errors.unknownError">Unknown error occured.</div>
+        </div>
+        <div *ngIf="f.errors?.unknwonError">test</div>
+        <div class="alert alert-success alert-dismissible mt-2" role="alert" *ngIf="Added">
+            Base added successfully!
+            <button type="button" (click)="DismissSuccessMessage()" class="close" data-dismiss="alert"
+                aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="alert alert-success alert-dismissible mt-2" role="alert" *ngIf="updated">
+            Base updated successfully!
+            <button type="button" (click)="DismissSuccessMessage()" class="close" data-dismiss="alert"
+                aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </form>
+</div>
