@@ -16,6 +16,7 @@ import { AuthService } from './services/auth.service';
 import { BaseService } from './services/base.service';
 import { AgentsComponent } from './agents/agents.component';
 import { AgentFormComponent } from './agent-form/agent-form.component';
+import { AgentService } from './services/agent.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { AgentFormComponent } from './agent-form/agent-form.component';
   ],
   providers: [
     AuthService,
-    BaseService
+    BaseService,
+    AgentService
   ],
   bootstrap: [AppComponent]
 })
