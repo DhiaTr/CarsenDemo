@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AgentService } from '../services/agent.service';
 
 @Component({
   selector: 'app-agents',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgentsComponent implements OnInit {
 
-  constructor() { }
+  agents;
+
+  constructor(private agentsService: AgentService) { }
 
   ngOnInit() {
+    this.updateView();
+  }
+
+  updateView() {
+    this.agentsService.getAll()
+      .subscribe(result => this.agents = result);
+  }
+
+  delete(id) {
+    this.agentsService.deleteOne(id)
+      .subscribe(result => this.updateView());
   }
 
 }

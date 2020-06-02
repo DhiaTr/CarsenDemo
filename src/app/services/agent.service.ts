@@ -13,8 +13,19 @@ export class AgentService {
 
   constructor(private http: HttpClient) { }
 
+
+  deleteOne(id) {
+    return this.http.delete('http://localhost:3000/api/agents/' + id, this.getHeader())
+      .pipe(catchError(this.handleError));
+  }
+
   addOne(agentData) {
     return this.http.post('http://localhost:3000/api/agents/', agentData, this.getHeader())
+      .pipe(catchError(this.handleError));
+  }
+
+  getAll() {
+    return this.http.get('http://localhost:3000/api/agents/', this.getHeader())
       .pipe(catchError(this.handleError));
   }
 
