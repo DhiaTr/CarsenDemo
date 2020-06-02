@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { InvalidData } from '../common/invalid-data';
-import { BaseNotExistant } from '../common/base-not-existant';
 import { AppError } from '../common/app-error';
+import { AgentNotExistant } from '../common/agent-not-existant';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +16,16 @@ export class AgentService {
 
   deleteOne(id) {
     return this.http.delete('http://localhost:3000/api/agents/' + id, this.getHeader())
+      .pipe(catchError(this.handleError));
+  }
+
+  getOne(id) {
+    return this.http.get('http://localhost:3000/api/agents/' + id, this.getHeader())
+      .pipe(catchError(this.handleError));
+  }
+
+  update(id, agentData) {
+    return this.http.put('http://localhost:3000/api/agents/' + id, agentData, this.getHeader())
       .pipe(catchError(this.handleError));
   }
 
@@ -38,7 +48,7 @@ export class AgentService {
     if (error.status === 400)
       return throwError(new InvalidData(error));
     else if (error.status === 404)
-      return throwError(new BaseNotExistant(error));
+      return throwError(new AgentNotExistant(error));
     return throwError(new AppError(error));
   }
 }

@@ -23,7 +23,7 @@
                 <td>{{ a?.hireDate | date }}</td>
                 <td>{{ a?.ID_Base.B_Name }}</td>
                 <td>
-                    <a class="btn btn-secondary mx-1" [routerLink]="">Edit</a>
+                    <a class="btn btn-secondary mx-1" [routerLink]="['/agentForm/', a._id]">Edit</a>
                     <a class="btn btn-danger text-light mx-1" (click)="delete(a._id)">delete</a>
                 </td>
             </tr>

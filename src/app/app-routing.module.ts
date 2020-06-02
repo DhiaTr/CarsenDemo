@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'newBase/:id', component: BaseFormComponent },
   { path: 'newBase', component: BaseFormComponent },
   { path: 'agents', component: AgentsComponent },
+  { path: 'agentForm/:id', component: AgentFormComponent },
   { path: 'agentForm', component: AgentFormComponent }
 ];
 

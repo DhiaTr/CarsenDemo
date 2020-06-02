@@ -2,7 +2,8 @@
     <form #f="ngForm" (ngSubmit)="submit(f)" class="mt-5">
         <div class="form-group">
             <label for="B_Name">Base</label>
-            <select required ngModel #ID_Base="ngModel" class="form-control" name="ID_Base" id="ID_Base">
+            <select required [ngModel]="agent?.ID_Base._id" #ID_Base="ngModel" class="form-control" name="ID_Base"
+                id="ID_Base">
                 <option *ngFor="let b of bases" [value]="b._id"> {{ b.B_Name }} </option>
             </select>
             <div class="alert alert-danger mt-2" *ngIf="ID_Base.touched && ID_Base.invalid">
@@ -11,8 +12,8 @@
         </div>
         <div class="form-group">
             <label for="FirstName">First Name</label>
-            <input required minlength="5" maxlength="150" ngModel #FirstName="ngModel" type="text" class="form-control"
-                name="FirstName" id="FirstName">
+            <input required minlength="5" maxlength="150" [ngModel]="agent?.FirstName" #FirstName="ngModel" type="text"
+                class="form-control" name="FirstName" id="FirstName">
             <div class="alert alert-danger mt-2" *ngIf="!FirstName.valid && FirstName.touched">
                 <div *ngIf="FirstName.errors?.required">FirstName Field is required.</div>
                 <div *ngIf="FirstName.errors?.minlength">FirstName should be minimum 5 characters.</div>
@@ -20,8 +21,8 @@
         </div>
         <div class="form-group">
             <label for="LastName">First Name</label>
-            <input required minlength="5" maxlength="150" ngModel #LastName="ngModel" type="text" class="form-control"
-                name="LastName" id="LastName">
+            <input required minlength="5" maxlength="150" [ngModel]="agent?.LastName" #LastName="ngModel" type="text"
+                class="form-control" name="LastName" id="LastName">
             <div class="alert alert-danger mt-2" *ngIf="!LastName.valid && LastName.touched">
                 <div *ngIf="LastName.errors?.required">LastName Field is required.</div>
                 <div *ngIf="LastName.errors?.minlength">LastName should be minimum 5 characters.</div>
@@ -29,8 +30,8 @@
         </div>
         <div class="form-group">
             <label for="phone">Phone</label>
-            <input required minlength="8" maxlength="12" ngModel #phone="ngModel" type="text" class="form-control"
-                name="phone" id="phone" pattern="[0-9]{8,12}">
+            <input required minlength="8" maxlength="12" [ngModel]="agent?.phone" #phone="ngModel" type="text"
+                class="form-control" name="phone" id="phone" pattern="[0-9]{8,12}">
             <div class="alert alert-danger mt-2" *ngIf="!phone.valid && phone.touched">
                 <div *ngIf="phone.errors?.required">phone Field is required.</div>
                 <div *ngIf="phone.errors?.minlength">phone should be minimum 5 digits.</div>
@@ -39,8 +40,8 @@
         </div>
         <div class="form-group">
             <label for="email">Email</label>
-            <input required type="email" minlength="10" maxlength="150" ngModel #email="ngModel" class="form-control"
-                name="email" id="email"
+            <input required type="email" minlength="10" maxlength="150" [ngModel]="agent?.email" #email="ngModel"
+                class="form-control" name="email" id="email"
                 pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$">
             <div class="alert alert-danger mt-2" *ngIf="!email.valid && email.touched">
                 <div *ngIf="email.errors?.required">Email Field is required.</div>
@@ -50,8 +51,8 @@
         </div>
         <div class="form-group">
             <label for="salary">Salary</label>
-            <input required minlength="4" maxlength="150" ngModel #salary="ngModel" type="text" class="form-control"
-                name="salary" id="salary" pattern="[0-9]+">
+            <input required minlength="4" maxlength="150" [ngModel]="agent?.salary" #salary="ngModel" type="text"
+                class="form-control" name="salary" id="salary" pattern="[0-9]+">
             <div class="alert alert-danger mt-2" *ngIf="!salary.valid && salary.touched">
                 <div *ngIf="salary.errors?.required">Salary Field is required.</div>
                 <div *ngIf="salary.errors?.minlength">Salary must be at least 3 digits.</div>
@@ -60,8 +61,8 @@
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input required minlength="5" maxlength="150" ngModel #password="ngModel" type="text" class="form-control"
-                name="password" id="password">
+            <input required minlength="5" maxlength="150" ngModel #password="ngModel" type="password"
+                class="form-control" name="password" id="password">
             <div class="alert alert-danger mt-2" *ngIf="!password.valid && password.touched">
                 <div *ngIf="password.errors?.required">Password Field is required.</div>
                 <div *ngIf="password.errors?.minlength">Password should be minimum 5 characters</div>
@@ -81,12 +82,12 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <!-- <div class="alert alert-success alert-dismissible mt-2" role="alert" *ngIf="updated">
-            Base updated successfully!
+        <div class="alert alert-success alert-dismissible mt-2" role="alert" *ngIf="updated">
+            Agent updated successfully!
             <button type="button" (click)="DismissSuccessMessage()" class="close" data-dismiss="alert"
                 aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
-        </div> -->
+        </div>
     </form>
 </div>

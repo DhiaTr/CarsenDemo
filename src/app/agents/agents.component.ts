@@ -22,6 +22,9 @@ export class AgentsComponent implements OnInit {
   }
 
   delete(id) {
+    if (!confirm('Are you sure you want to delete this agent?')) {
+      return;
+    }
     this.agentsService.deleteOne(id)
       .subscribe(result => this.updateView());
   }
