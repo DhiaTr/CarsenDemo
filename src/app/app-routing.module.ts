@@ -8,6 +8,8 @@ import { BasesComponent } from './bases/bases.component';
 import { BaseFormComponent } from './base-form/base-form.component';
 import { AgentsComponent } from './agents/agents.component';
 import { AgentFormComponent } from './agent-form/agent-form.component';
+import { CarsComponent } from './cars/cars.component';
+import { CarFormComponent } from './car-form/car-form.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,7 +22,9 @@ const routes: Routes = [
   { path: 'newBase', component: BaseFormComponent },
   { path: 'agents', component: AgentsComponent },
   { path: 'agentForm/:id', component: AgentFormComponent },
-  { path: 'agentForm', component: AgentFormComponent }
+  { path: 'agentForm', component: AgentFormComponent },
+  { path: 'cars', component: CarsComponent },
+  { path: 'carForm', component: CarFormComponent }
 ];
 
 @NgModule({

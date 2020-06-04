@@ -1,0 +1,88 @@
+<div class="container">
+    <form #f="ngForm" (ngSubmit)="submit(f)" class="mt-5">
+        <div class="form-group">
+            <label for="B_Name">Base</label>
+            <select required ngModel #ID_Base="ngModel" class="form-control" name="ID_Base" id="ID_Base">
+                <option *ngFor="let b of bases" [value]="b._id"> {{ b.B_Name }} </option>
+            </select>
+            <div class="alert alert-danger mt-2" *ngIf="ID_Base.touched && ID_Base.invalid">
+                Base is required
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Mark">Mark</label>
+            <input required minlength="5" maxlength="100" ngModel #Mark="ngModel" type="text" class="form-control"
+                name="Mark" id="Mark">
+            <div class="alert alert-danger mt-2" *ngIf="!Mark.valid && Mark.touched">
+                <div *ngIf="Mark.errors?.required">Mark Field is required.</div>
+                <div *ngIf="Mark.errors?.minlength">Mark should be minimum 5 characters.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Model">Model</label>
+            <input required minlength="5" maxlength="100" ngModel #Model="ngModel" type="text" class="form-control"
+                name="Model" id="Model">
+            <div class="alert alert-danger mt-2" *ngIf="!Model.valid && Model.touched">
+                <div *ngIf="Model.errors?.required">Model Field is required.</div>
+                <div *ngIf="Model.errors?.minlength">Model should be minimum 5 characters.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Registration_Number">Registration Number</label>
+            <input required minlength="3" maxlength="30" ngModel #Registration_Number="ngModel" type="text"
+                class="form-control" name="Registration_Number" id="Registration_Number">
+            <div class="alert alert-danger mt-2" *ngIf="!Registration_Number.valid && Registration_Number.touched">
+                <div *ngIf="Registration_Number.errors?.required">Registration Number is required.</div>
+                <div *ngIf="Registration_Number.errors?.minlength">Registration Number should be minimum 5 characters.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="production_Year">Production Year</label>
+            <input required minlength="4" maxlength="4" ngModel #production_Year="ngModel" type="text"
+                class="form-control" name="production_Year" id="production_Year">
+            <div class="alert alert-danger mt-2" *ngIf="!production_Year.valid && production_Year.touched">
+                <div *ngIf="production_Year.errors?.required">Production Year is required.</div>
+                <div *ngIf="production_Year.errors?.minlength">Production Year should be minimum 5 characters.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Rent_Price">Rent Price</label>
+            <input required min="0" max="10000" ngModel #Rent_Price="ngModel" type="number" class="form-control"
+                name="Rent_Price" id="Rent_Price">
+            <div class="alert alert-danger mt-2" *ngIf="!Rent_Price.valid && Rent_Price.touched">
+                <div *ngIf="Rent_Price.errors?.required">Rent Price is required.</div>
+                <div *ngIf="Rent_Price.errors?.minlength">Rent Price should be minimum 5 characters.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Category">Category</label>
+            <input required minlength="5" maxlength="30" ngModel #Category="ngModel" type="text" class="form-control"
+                name="Category" id="Category">
+            <div class="alert alert-danger mt-2" *ngIf="!Category.valid && Category.touched">
+                <div *ngIf="Category.errors?.required">Category is required.</div>
+                <div *ngIf="Category.errors?.minlength">Category should be minimum 5 characters.</div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary my-3" [disabled]="f.invalid || f.errors">Submit</button>
+        <div class="alert alert-danger mt-2" *ngIf="f.submitted && f.errors">
+            <div *ngIf="f.errors && f.errors.invalidData">invalid data submitted.</div>
+            <div *ngIf="f.errors && f.errors.unknownError">Unknown error occured.</div>
+        </div>
+        <div class="alert alert-success alert-dismissible mt-2" role="alert" *ngIf="Added">
+            Car added successfully!
+            <button type="button" (click)="DismissSuccessMessage()" class="close" data-dismiss="alert"
+                aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!-- <div class="alert alert-success alert-dismissible mt-2" role="alert" *ngIf="updated">
+            Agent updated successfully!
+            <button type="button" (click)="DismissSuccessMessage()" class="close" data-dismiss="alert"
+                aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div> -->
+    </form>
+</div>

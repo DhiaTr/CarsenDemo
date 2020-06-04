@@ -17,12 +17,12 @@ export class LoginComponent {
 
   // form.controls.email.setErrors({ 'invalidMailorPass': true });
   submit(form) {
-    console.log(form.form);
     this.auth.login(form.value).subscribe(result => {
       if (result)
         this.router.navigate(['/home']);
     },
       (err: Response) => {
+        console.log(err);
         if (err instanceof invalidMailOrPassword) {
           form.form.setErrors({ 'invalidMailorPass': true });
         } else {

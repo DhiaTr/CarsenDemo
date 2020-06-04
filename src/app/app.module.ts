@@ -17,6 +17,9 @@ import { BaseService } from './services/base.service';
 import { AgentsComponent } from './agents/agents.component';
 import { AgentFormComponent } from './agent-form/agent-form.component';
 import { AgentService } from './services/agent.service';
+import { CarsComponent } from './cars/cars.component';
+import { CarFormComponent } from './car-form/car-form.component';
+import { CarsService } from './services/cars.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,9 @@ import { AgentService } from './services/agent.service';
     BasesComponent,
     BaseFormComponent,
     AgentsComponent,
-    AgentFormComponent
+    AgentFormComponent,
+    CarsComponent,
+    CarFormComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,8 @@ import { AgentService } from './services/agent.service';
   providers: [
     AuthService,
     BaseService,
-    AgentService
+    AgentService,
+    CarsService
   ],
   bootstrap: [AppComponent]
 })
