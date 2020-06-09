@@ -20,6 +20,9 @@ export class CarsComponent implements OnInit {
   }
 
   delete(id) {
+    if (!confirm('Are you sure you want to delete this car?')) {
+      return;
+    }
     this.carService.delete(id)
       .subscribe(result => this.updateView());
   }

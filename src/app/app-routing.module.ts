@@ -24,6 +24,7 @@ const routes: Routes = [
   { path: 'agentForm/:id', component: AgentFormComponent },
   { path: 'agentForm', component: AgentFormComponent },
   { path: 'cars', component: CarsComponent },
+  { path: 'carForm/:id', component: CarFormComponent },
   { path: 'carForm', component: CarFormComponent }
 ];
 

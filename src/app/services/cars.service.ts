@@ -22,9 +22,21 @@ export class CarsService {
       .pipe(catchError(this.handleError));
   }
 
+  getOne(id) {
+    return this.http
+      .get('http://localhost:3000/api/cars/' + id, this.getHeader())
+      .pipe(catchError(this.handleError));
+  }
+
   delete(id) {
     return this.http
       .delete('http://localhost:3000/api/cars/' + id, this.getHeader())
+      .pipe(catchError(this.handleError));
+  }
+
+  update(id, car) {
+    return this.http
+      .put('http://localhost:3000/api/cars/' + id, car, this.getHeader())
       .pipe(catchError(this.handleError));
   }
 
