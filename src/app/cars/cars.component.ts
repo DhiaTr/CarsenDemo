@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CarsService } from '../services/cars.service';
 
 @Component({
   selector: 'app-cars',
@@ -6,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cars.component.sass']
 })
 export class CarsComponent implements OnInit {
-
-  constructor() { }
+  cars;
+  constructor(private carService: CarsService) { }
 
   ngOnInit() {
+    this.updateView();
+  }
+
+  updateView() {
+    this.carService.getAll()
+      .subscribe(result => this.cars = result);
+  }
+
+  delete(id) {
+    this.carService.delete(id)
+      .subscribe(result => this.updateView());
   }
 
 }
