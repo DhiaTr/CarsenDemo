@@ -11,15 +11,34 @@ export class ClientService {
 
   constructor(private http: HttpClient) { }
 
+
+  getAll() {
+    return this.http
+      .get('http://localhost:3000/api/clients', this.getHeader())
+      .pipe(catchError(this.handleError));
+  }
+
+  getOne(id) {
+    return this.http
+      .get('http://localhost:3000/api/clients/' + id, this.getHeader())
+      .pipe(catchError(this.handleError));
+  }
+
   add(client) {
     return this.http
       .post('http://localhost:3000/api/clients', client, this.getHeader())
       .pipe(catchError(this.handleError));
   }
 
-  getAll() {
+  delete(id) {
     return this.http
-      .get('http://localhost:3000/api/clients', this.getHeader())
+      .delete('http://localhost:3000/api/clients/' + id, this.getHeader())
+      .pipe(catchError(this.handleError));
+  }
+
+  update(id, client) {
+    return this.http
+      .put('http://localhost:3000/api/clients/' + id, client, this.getHeader())
       .pipe(catchError(this.handleError));
   }
 

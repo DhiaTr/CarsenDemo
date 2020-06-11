@@ -2,8 +2,8 @@
     <form #f="ngForm" (ngSubmit)="submit(f)" class="mt-5">
         <div class="form-group">
             <label for="CIN">CIN</label>
-            <input required minlength="8" maxlength="8" pattern="[0-9]{8}" ngModel #CIN="ngModel" type="text"
-                class="form-control" name="CIN" id="CIN">
+            <input required minlength="8" maxlength="8" pattern="[0-9]{8}" [ngModel]="client?.CIN" #CIN="ngModel"
+                type="text" class="form-control" name="CIN" id="CIN">
             <div class="alert alert-danger mt-2" *ngIf="!CIN.valid && CIN.touched">
                 <div *ngIf="CIN.errors?.required">CIN Field is required.</div>
                 <div *ngIf="CIN.errors?.minlength">CIN should be minimum 5 characters.</div>
@@ -11,8 +11,8 @@
         </div>
         <div class="form-group">
             <label for="FirstName">First Name</label>
-            <input required minlength="5" maxlength="150" ngModel #FirstName="ngModel" type="text" class="form-control"
-                name="FirstName" id="FirstName">
+            <input required minlength="5" maxlength="150" [ngModel]="client?.FirstName" #FirstName="ngModel" type="text"
+                class="form-control" name="FirstName" id="FirstName">
             <div class="alert alert-danger mt-2" *ngIf="!FirstName.valid && FirstName.touched">
                 <div *ngIf="FirstName.errors?.required">First Name Field is required.</div>
                 <div *ngIf="FirstName.errors?.minlength">First Name should be minimum 5 digits.</div>
@@ -20,8 +20,8 @@
         </div>
         <div class="form-group">
             <label for="LastName">Last Name</label>
-            <input required type="LastName" minlength="5" maxlength="150" ngModel #LastName="ngModel"
-                class="form-control" name="LastName" id="LastName">
+            <input required type="LastName" minlength="5" maxlength="150" [ngModel]="client?.LastName"
+                #LastName="ngModel" class="form-control" name="LastName" id="LastName">
             <div class="alert alert-danger mt-2" *ngIf="!LastName.valid && LastName.touched">
                 <div *ngIf="LastName.errors?.required">Last Name Field is required.</div>
                 <div *ngIf="LastName.errors?.minlength">Last Name should be minimum 5 characters.</div>
@@ -30,8 +30,8 @@
         </div>
         <div class="form-group">
             <label for="phone">Phone</label>
-            <input required minlength="8" maxlength="12" ngModel #phone="ngModel" type="text" class="form-control"
-                name="phone" id="phone" pattern="[0-9]+">
+            <input required minlength="8" maxlength="12" [ngModel]="client?.phone" #phone="ngModel" type="text"
+                class="form-control" name="phone" id="phone" pattern="[0-9]+">
             <div class="alert alert-danger mt-2" *ngIf="!phone.valid && phone.touched">
                 <div *ngIf="phone.errors?.required">Phone Field is required.</div>
                 <div *ngIf="phone.errors?.minlength">Phone must be at least 3 digits.</div>
@@ -40,7 +40,7 @@
         </div>
         <div class="form-group">
             <label for="address">Address</label>
-            <input required minlength="30" maxlength="150" ngModel #address="ngModel" type="address"
+            <input required minlength="30" maxlength="150" [ngModel]="client?.address" #address="ngModel" type="address"
                 class="form-control" name="address" id="address">
             <div class="alert alert-danger mt-2" *ngIf="!address.valid && address.touched">
                 <div *ngIf="address.errors?.required">Address Field is required.</div>
@@ -54,18 +54,18 @@
             <div *ngIf="f.errors && f.errors.unknownError">Unknown error occured.</div>
         </div>
         <div class="alert alert-success alert-dismissible mt-2" role="alert" *ngIf="Added">
-            client added successfully!
+            Client added successfully!
             <button type="button" (click)="DismissSuccessMessage()" class="close" data-dismiss="alert"
                 aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <!-- <div class="alert alert-success alert-dismissible mt-2" role="alert" *ngIf="updated">
-            Agent updated successfully!
+        <div class="alert alert-success alert-dismissible mt-2" role="alert" *ngIf="updated">
+            Client updated successfully!
             <button type="button" (click)="DismissSuccessMessage()" class="close" data-dismiss="alert"
                 aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
-        </div> -->
+        </div>
     </form>
 </div>
