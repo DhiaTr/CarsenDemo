@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <p>
+    <a routerLink="/clientForm" class="btn btn-primary">new Client</a>
+  </p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>CIN</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>phone</th>
+        <th>Address</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of clients">
+        <td>{{ c.CIN }}</td>
+        <td>{{ c.FirstName }}</td>
+        <td>{{ c.LastName }}</td>
+        <td>{{ c.phone }}</td>
+        <td>{{ c.address }}</td>
+        <td>
+          <!-- <a class="btn btn-secondary mx-1" [routerLink]="['/carForm/', c._id]">Edit</a> -->
+          <!-- <a class="btn btn-danger text-light mx-1" (click)="delete(c._id)">delete</a> -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
