@@ -10,6 +10,8 @@
                 <th>Phone</th>
                 <th>Salary</th>
                 <th>Base Name</th>
+                <th>Base phone</th>
+                <th>Base Address</th>
                 <th></th>
             </tr>
         </thead>
@@ -20,9 +22,11 @@
                 <td>{{ m.phone }}</td>
                 <td>{{ m.salary }}</td>
                 <td>{{ m.ID_Base.B_Name }}</td>
+                <td>{{ m.ID_Base.phone }}</td>
+                <td>{{ m.ID_Base.adress }}</td>
                 <td>
-                    <!-- <a class="btn btn-secondary mx-1" [routerLink]="['/newBase/', b._id]">Edit</a>
-                    <a class="btn btn-danger text-light mx-1" (click)="delete(b._id)">delete</a> -->
+                    <a class="btn btn-secondary mx-1" [routerLink]="['/mechanicsForm/', m._id]">Edit</a>
+                    <a class="btn btn-danger text-light mx-1" (click)="delete(m._id)">delete</a>
                 </td>
             </tr>
         </tbody>

@@ -16,8 +16,23 @@ export class MechanicsService {
       .pipe(catchError(this.handleError));
   }
 
+  getOne(id) {
+    return this.http.get('http://localhost:3000/api/mechanics/' + id, this.getHeader())
+      .pipe(catchError(this.handleError));
+  }
+
+  update(id, mechanic) {
+    return this.http.put('http://localhost:3000/api/mechanics/' + id, mechanic, this.getHeader())
+      .pipe(catchError(this.handleError));
+  }
+
   add(mechanic) {
     return this.http.post('http://localhost:3000/api/mechanics', mechanic, this.getHeader())
+      .pipe(catchError(this.handleError));
+  }
+
+  delete(id) {
+    return this.http.delete('http://localhost:3000/api/mechanics/' + id, this.getHeader())
       .pipe(catchError(this.handleError));
   }
 

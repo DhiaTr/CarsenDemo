@@ -13,8 +13,18 @@ export class MechanicsComponent implements OnInit {
 
   mechanics;
   ngOnInit() {
-    this.mechanicService.getAll().subscribe(result => this.mechanics = result);
-    // add error handling 
+    this.updateView();
   }
+
+  updateView() {
+    this.mechanicService.getAll().subscribe(result => this.mechanics = result);
+    // add error handling
+  }
+
+  delete(id) {
+    this.mechanicService.delete(id)
+      .subscribe(result => this.updateView());
+  }
+
 
 }
