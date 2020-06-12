@@ -12,6 +12,8 @@ import { CarsComponent } from './cars/cars.component';
 import { CarFormComponent } from './car-form/car-form.component';
 import { ClientsComponent } from './clients/clients.component';
 import { ClientFormComponent } from './client-form/client-form.component';
+import { MechanicsComponent } from './mechanics/mechanics.component';
+import { MechanicFormComponent } from './mechanic-form/mechanic-form.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -31,6 +33,9 @@ const routes: Routes = [
   { path: 'clientForm/:id', component: ClientFormComponent },
   { path: 'clientForm', component: ClientFormComponent },
   { path: 'clients', component: ClientsComponent },
+  { path: 'mechanicsForm/:id', component: MechanicFormComponent },
+  { path: 'mechanicsForm', component: MechanicFormComponent },
+  { path: 'mechanics', component: MechanicsComponent },
 ];
 
 @NgModule({

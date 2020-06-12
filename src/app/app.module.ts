@@ -23,6 +23,9 @@ import { CarsService } from './services/cars.service';
 import { ClientsComponent } from './clients/clients.component';
 import { ClientFormComponent } from './client-form/client-form.component';
 import { ClientService } from './services/client.service';
+import { MechanicsComponent } from './mechanics/mechanics.component';
+import { MechanicFormComponent } from './mechanic-form/mechanic-form.component';
+import { MechanicsService } from './services/mechanics.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,9 @@ import { ClientService } from './services/client.service';
     CarsComponent,
     CarFormComponent,
     ClientsComponent,
-    ClientFormComponent
+    ClientFormComponent,
+    MechanicsComponent,
+    MechanicFormComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +58,8 @@ import { ClientService } from './services/client.service';
     BaseService,
     AgentService,
     CarsService,
-    ClientService
+    ClientService,
+    MechanicsService
   ],
   bootstrap: [AppComponent]
 })
