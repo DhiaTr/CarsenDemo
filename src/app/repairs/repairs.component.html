@@ -2,31 +2,29 @@
     <p>
         <a routerLink="/repairForm" class="btn btn-primary">new Repair</a>
     </p>
-    <!-- <table class="table">
+    <table class="table">
         <thead>
             <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>phone</th>
-                <th>email</th>
-                <th>Hire Date</th>
-                <th>Base</th>
+                <th>Mechanic Name</th>
+                <th>Mechanic phone</th>
+                <th>Car Registration Number</th>
+                <th>Repair Date</th>
+                <th>costs</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let a of agents">
-                <td>{{ a?.FirstName }}</td>
-                <td>{{ a?.LastName }}</td>
-                <td>{{ a?.phone }}</td>
-                <td>{{ a?.email }}</td>
-                <td>{{ a?.hireDate | date }}</td>
-                <td>{{ a?.ID_Base.B_Name }}</td>
+            <tr *ngFor="let r of repairs">
+                <td>{{ r?.ID_Mechanic?.FirstName }} {{ r?.ID_Mechanic?.LastName }}</td>
+                <td>{{ r?.ID_Mechanic?.phone }}</td>
+                <td>{{ r?.ID_Car?.Registration_Number }}</td>
+                <td>{{ r?.Repair_Date | date }}</td>
+                <td>{{ r?.costs }}</td>
                 <td>
-                    <a class="btn btn-secondary mx-1" [routerLink]="['/agentForm/', a._id]">Edit</a>
-                    <a class="btn btn-danger text-light mx-1" (click)="delete(a._id)">delete</a>
+                    <a class="btn btn-secondary mx-1" [routerLink]="['/repairForm/', r._id]">Edit</a>
+                    <a class="btn btn-danger text-light mx-1" (click)="delete(r._id)">delete</a>
                 </td>
             </tr>
         </tbody>
-    </table> -->
+    </table>
 </div>

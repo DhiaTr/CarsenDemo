@@ -10,9 +10,19 @@ export class RepairsComponent implements OnInit {
 
   constructor(private repairSerice: RepairsService) { }
 
+  repairs;
   ngOnInit() {
+    this.updateView();
+  }
+
+  updateView() {
     this.repairSerice.getAll()
-      .subscribe(result => console.log(result));
+      .subscribe(result => this.repairs = result);
+  }
+
+  delete(id) {
+    this.repairSerice.delete(id)
+      .subscribe(result => this.updateView());
   }
 
 }

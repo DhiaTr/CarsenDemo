@@ -16,8 +16,23 @@ export class RepairsService {
       .pipe(catchError(this.handleError));
   }
 
+  getOne(id) {
+    return this.http.get('http://localhost:3000/api/repairs/' + id, this.getHeader())
+      .pipe(catchError(this.handleError));
+  }
+
   add(repair) {
     return this.http.post('http://localhost:3000/api/repairs', repair, this.getHeader())
+      .pipe(catchError(this.handleError));
+  }
+
+  delete(id) {
+    return this.http.delete('http://localhost:3000/api/repairs/' + id, this.getHeader())
+      .pipe(catchError(this.handleError));
+  }
+
+  update(id, repair) {
+    return this.http.put('http://localhost:3000/api/repairs/' + id, repair, this.getHeader())
       .pipe(catchError(this.handleError));
   }
 
