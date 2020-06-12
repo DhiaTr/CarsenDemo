@@ -14,6 +14,8 @@ import { ClientsComponent } from './clients/clients.component';
 import { ClientFormComponent } from './client-form/client-form.component';
 import { MechanicsComponent } from './mechanics/mechanics.component';
 import { MechanicFormComponent } from './mechanic-form/mechanic-form.component';
+import { RepairsComponent } from './repairs/repairs.component';
+import { RepairFormComponent } from './repair-form/repair-form.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -36,6 +38,9 @@ const routes: Routes = [
   { path: 'mechanicsForm/:id', component: MechanicFormComponent },
   { path: 'mechanicsForm', component: MechanicFormComponent },
   { path: 'mechanics', component: MechanicsComponent },
+  { path: 'repairForm/:id', component: RepairFormComponent },
+  { path: 'repairForm', component: RepairFormComponent },
+  { path: 'repairs', component: RepairsComponent },
 ];
 
 @NgModule({

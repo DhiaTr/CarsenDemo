@@ -26,6 +26,8 @@ import { ClientService } from './services/client.service';
 import { MechanicsComponent } from './mechanics/mechanics.component';
 import { MechanicFormComponent } from './mechanic-form/mechanic-form.component';
 import { MechanicsService } from './services/mechanics.service';
+import { RepairsComponent } from './repairs/repairs.component';
+import { RepairFormComponent } from './repair-form/repair-form.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { MechanicsService } from './services/mechanics.service';
     ClientsComponent,
     ClientFormComponent,
     MechanicsComponent,
-    MechanicFormComponent
+    MechanicFormComponent,
+    RepairsComponent,
+    RepairFormComponent
   ],
   imports: [
     BrowserModule,

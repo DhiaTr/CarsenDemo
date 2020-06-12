@@ -1,0 +1,64 @@
+<div class="container">
+    <form #f="ngForm" (ngSubmit)="submit(f)" class="mt-5">
+        <div class="form-group">
+            <label for="ID_Mechanic">Mechanic</label>
+            <select required ngModel #ID_Mechanic="ngModel" class="form-control" name="ID_Mechanic" id="ID_Mechanic">
+                <option *ngFor="let m of mechanics" [value]="m._id"> {{ m.FirstName }} {{ m.LastName }} </option>
+            </select>
+            <div class="alert alert-danger mt-2" *ngIf="ID_Mechanic.touched && ID_Mechanic.invalid">
+                Mechanic is required
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="ID_Car">Car</label>
+            <select required ngModel #ID_Car="ngModel" class="form-control" name="ID_Car" id="ID_Car">
+                <option *ngFor="let c of cars" [value]="c._id"> {{ c.Registration_Number }} </option>
+            </select>
+            <div class="alert alert-danger mt-2" *ngIf="ID_Car.touched && ID_Car.invalid">
+                Mechanic is required
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="Repair_Date">Repair Date</label>
+            <input required min="2019-01-01" ngModel #Repair_Date="ngModel" type="date" class="form-control"
+                name="Repair_Date" id="Repair_Date">
+            <div class="alert alert-danger mt-2" *ngIf="!Repair_Date.valid && Repair_Date.touched">
+                <div *ngIf="Repair_Date.errors?.required">Repair Date is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="costs">Costs</label>
+            <input required minlength="1" maxlength="10" ngModel #costs="ngModel" type="text" class="form-control"
+                name="costs" id="costs" pattern="[0-9]{1,10}">
+            <div class="alert alert-danger mt-2" *ngIf="!costs.valid && costs.touched">
+                <div *ngIf="costs.errors?.required">costs Field is required.</div>
+                <div *ngIf="costs.errors?.minlength">costs should be minimum 5 digits.</div>
+                <div *ngIf="costs.errors?.pattern">Invalid cost number.</div>
+            </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary" [disabled]="f.invalid || f.errors">Submit</button>
+        <div class="alert alert-danger mt-2" *ngIf="f.submitted && f.errors">
+            <div *ngIf="f.errors && f.errors.invalidData">invalid data submitted.</div>
+            <div *ngIf="f.errors && f.errors.unknownError">Unknown error occured.</div>
+        </div>
+        <div *ngIf="f.errors?.unknwonError">test</div>
+        <div class="alert alert-success alert-dismissible mt-2" role="alert" *ngIf="added">
+            Repair added successfully!
+            <button type="button" (click)="DismissSuccessMessage()" class="close" data-dismiss="alert"
+                aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!-- <div class="alert alert-success alert-dismissible mt-2" role="alert" *ngIf="updated">
+            Agent updated successfully!
+            <button type="button" (click)="DismissSuccessMessage()" class="close" data-dismiss="alert"
+                aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+</div> -->
+    </form>
+</div>
