@@ -11,6 +11,16 @@ export class OrdersService {
 
   constructor(private http: HttpClient) { }
 
+  getAll() {
+    return this.http.get('http://localhost:3000/api/orders', this.getHeader())
+      .pipe(catchError(this.handleError));
+  }
+
+  delete(id) {
+    return this.http.delete('http://localhost:3000/api/orders/' + id, this.getHeader())
+      .pipe(catchError(this.handleError));
+  }
+
   add(order) {
     return this.http.post('http://localhost:3000/api/orders', order, this.getHeader())
       .pipe(catchError(this.handleError));

@@ -20,6 +20,7 @@ export class OrderFormComponent implements OnInit {
   cars;
   currentDate;
   added = false;
+  RentalEndDateMin;
   ngOnInit() {
     this.clientService.getAll()
       .subscribe(result => this.clients = result);
@@ -37,6 +38,9 @@ export class OrderFormComponent implements OnInit {
       });
   }
 
+  getValues(Rent_Start_Date) {
+    this.RentalEndDateMin = Rent_Start_Date;
+  }
 
   DismissSuccessMessage() {
     this.added = false;

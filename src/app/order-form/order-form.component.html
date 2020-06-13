@@ -22,7 +22,7 @@
 
         <div class="form-group">
             <label for="Rent_Start_Date">Rental Start Date</label>
-            <input required min={{currentDate}} [ngModel]="repair?.Rent_Start_Date" #Rent_Start_Date="ngModel"
+            <input required min={{currentDate}} (change)="getValues(Rent_Start_Date)" ngModel #Rent_Start_Date="ngModel"
                 type="date" class="form-control" name="Rent_Start_Date" id="Rent_Start_Date">
             <div class="alert alert-danger mt-2" *ngIf="!Rent_Start_Date.valid && Rent_Start_Date.touched">
                 <div *ngIf="Rent_Start_Date.errors?.required">Rental Start Date is required.</div>
@@ -30,8 +30,8 @@
         </div>
         <div class="form-group">
             <label for="Rent_End_Date">Rental End Date</label>
-            <input required min={{currentDate}} [ngModel]="repair?.Rent_End_Date" #Rent_End_Date="ngModel" type="date"
-                class="form-control" name="Rent_End_Date" id="Rent_End_Date">
+            <input required min={{RentalEndDateMin?.value}} ngModel #Rent_End_Date="ngModel" type="date"
+                class="form-control" name="Rent_End_Date" id="Rent_End_Date" [disabled]="!RentalEndDateMin">
             <div class="alert alert-danger mt-2" *ngIf="!Rent_End_Date.valid && Rent_End_Date.touched">
                 <div *ngIf="Rent_End_Date.errors?.required">Rental End Date is required.</div>
             </div>
