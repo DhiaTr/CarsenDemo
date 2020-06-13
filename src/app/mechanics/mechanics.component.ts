@@ -22,6 +22,9 @@ export class MechanicsComponent implements OnInit {
   }
 
   delete(id) {
+    if (!confirm('Are you sure you want to delete this mechanic?')) {
+      return;
+    }
     this.mechanicService.delete(id)
       .subscribe(result => this.updateView());
   }

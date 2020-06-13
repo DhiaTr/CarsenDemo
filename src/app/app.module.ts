@@ -28,6 +28,9 @@ import { MechanicFormComponent } from './mechanic-form/mechanic-form.component';
 import { MechanicsService } from './services/mechanics.service';
 import { RepairsComponent } from './repairs/repairs.component';
 import { RepairFormComponent } from './repair-form/repair-form.component';
+import { OrdersComponent } from './orders/orders.component';
+import { OrderFormComponent } from './order-form/order-form.component';
+import { OrdersService } from './services/orders.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,9 @@ import { RepairFormComponent } from './repair-form/repair-form.component';
     MechanicsComponent,
     MechanicFormComponent,
     RepairsComponent,
-    RepairFormComponent
+    RepairFormComponent,
+    OrdersComponent,
+    OrderFormComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +68,8 @@ import { RepairFormComponent } from './repair-form/repair-form.component';
     AgentService,
     CarsService,
     ClientService,
-    MechanicsService
+    MechanicsService,
+    OrdersService
   ],
   bootstrap: [AppComponent]
 })

@@ -21,8 +21,10 @@ export class RepairsComponent implements OnInit {
   }
 
   delete(id) {
+    if (!confirm('Are you sure you want to delete this repair?')) {
+      return;
+    }
     this.repairSerice.delete(id)
       .subscribe(result => this.updateView());
   }
-
 }

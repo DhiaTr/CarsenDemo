@@ -20,8 +20,6 @@
                 Mechanic is required
             </div>
         </div>
-
-
         <div class="form-group">
             <label for="Repair_Date">Repair Date</label>
             <input required min="2019-01-01" [ngModel]="repair?.Repair_Date" #Repair_Date="ngModel" type="date"
@@ -40,8 +38,6 @@
                 <div *ngIf="costs.errors?.pattern">Invalid cost number.</div>
             </div>
         </div>
-
-
         <button type="submit" class="btn btn-primary" [disabled]="f.invalid || f.errors">Submit</button>
         <div class="alert alert-danger mt-2" *ngIf="f.submitted && f.errors">
             <div *ngIf="f.errors && f.errors.invalidData">invalid data submitted.</div>
