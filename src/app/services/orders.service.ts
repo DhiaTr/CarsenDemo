@@ -16,8 +16,8 @@ export class OrdersService {
       .pipe(catchError(this.handleError));
   }
 
-  delete(id) {
-    return this.http.delete('http://localhost:3000/api/orders/' + id, this.getHeader())
+  getOne(id) {
+    return this.http.get('http://localhost:3000/api/orders/' + id, this.getHeader())
       .pipe(catchError(this.handleError));
   }
 
@@ -25,6 +25,17 @@ export class OrdersService {
     return this.http.post('http://localhost:3000/api/orders', order, this.getHeader())
       .pipe(catchError(this.handleError));
   }
+
+  update(id, order) {
+    return this.http.put('http://localhost:3000/api/orders/' + id, order, this.getHeader())
+      .pipe(catchError(this.handleError));
+  }
+
+  delete(id) {
+    return this.http.delete('http://localhost:3000/api/orders/' + id, this.getHeader())
+      .pipe(catchError(this.handleError));
+  }
+
 
   getHeader() {
     const token = localStorage.getItem('token');

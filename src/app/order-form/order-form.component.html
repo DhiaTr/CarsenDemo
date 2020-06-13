@@ -2,7 +2,8 @@
     <form #f="ngForm" (ngSubmit)="submit(f)" class="mt-5">
         <div class="form-group">
             <label for="ID_Client">Client</label>
-            <select required ngModel #ID_Client="ngModel" class="form-control" name="ID_Client" id="ID_Client">
+            <select required [ngModel]="order?.ID_Client?._id" #ID_Client="ngModel" class="form-control"
+                name="ID_Client" id="ID_Client">
                 <option *ngFor="let c of clients" [value]="c._id">{{ c.CIN }}: {{ c.FirstName }} {{ c.LastName }}
                 </option>
             </select>
@@ -12,7 +13,8 @@
         </div>
         <div class="form-group">
             <label for="ID_Car">Car</label>
-            <select required ngModel #ID_Car="ngModel" class="form-control" name="ID_Car" id="ID_Car">
+            <select required [ngModel]="order?.ID_Car?._id" #ID_Car="ngModel" class="form-control" name="ID_Car"
+                id="ID_Car">
                 <option *ngFor="let c of cars" [value]="c._id">{{ c.Registration_Number }}</option>
             </select>
             <div class="alert alert-danger mt-2" *ngIf="ID_Car.touched && ID_Car.invalid">
@@ -22,16 +24,16 @@
 
         <div class="form-group">
             <label for="Rent_Start_Date">Rental Start Date</label>
-            <input required min={{currentDate}} (change)="getValues(Rent_Start_Date)" ngModel #Rent_Start_Date="ngModel"
-                type="date" class="form-control" name="Rent_Start_Date" id="Rent_Start_Date">
+            <input required min={{currentDate}} (change)="getValues(Rent_Start_Date)" [ngModel]="order?.Rent_Start_Date"
+                #Rent_Start_Date="ngModel" type="date" class="form-control" name="Rent_Start_Date" id="Rent_Start_Date">
             <div class="alert alert-danger mt-2" *ngIf="!Rent_Start_Date.valid && Rent_Start_Date.touched">
                 <div *ngIf="Rent_Start_Date.errors?.required">Rental Start Date is required.</div>
             </div>
         </div>
         <div class="form-group">
             <label for="Rent_End_Date">Rental End Date</label>
-            <input required min={{RentalEndDateMin?.value}} ngModel #Rent_End_Date="ngModel" type="date"
-                class="form-control" name="Rent_End_Date" id="Rent_End_Date" [disabled]="!RentalEndDateMin">
+            <input required min={{RentalEndDateMin?.value}} [ngModel]="order?.Rent_End_Date" #Rent_End_Date="ngModel"
+                type="date" class="form-control" name="Rent_End_Date" id="Rent_End_Date" [disabled]="!RentalEndDateMin">
             <div class="alert alert-danger mt-2" *ngIf="!Rent_End_Date.valid && Rent_End_Date.touched">
                 <div *ngIf="Rent_End_Date.errors?.required">Rental End Date is required.</div>
             </div>
@@ -48,12 +50,12 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <!-- <div class="alert alert-success alert-dismissible mt-2" role="alert" *ngIf="updated">
+        <div class="alert alert-success alert-dismissible mt-2" role="alert" *ngIf="updated">
             Order updated successfully!
             <button type="button" (click)="DismissSuccessMessage()" class="close" data-dismiss="alert"
                 aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
-        </div> -->
+        </div>
     </form>
 </div>
