@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-import { invalidMailOrPassword } from '../common/invalid-mail-or-password';
+import { invalidMailOrPassword } from '../main/common/invalid-mail-or-password';
 
 @Component({
   selector: 'login',

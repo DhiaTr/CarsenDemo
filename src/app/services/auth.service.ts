@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { map, catchError, switchMap } from 'rxjs/operators';
-import { error } from 'util';
-import { Observable, throwError } from 'rxjs';
-import { invalidMailOrPassword } from '../common/invalid-mail-or-password';
-import { AppError } from '../common/app-error';
+import { invalidMailOrPassword } from '../main/common/invalid-mail-or-password';
+import { AppError } from '../main/common/app-error';
+import { throwError } from 'rxjs';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +27,36 @@ export class AuthService {
 
   signup(clientData) {
     return this.http.post('http://localhost:3000/api/agents', clientData).pipe(catchError(this.handleError));
+  }
+
+  getCurrentUser() {
+    const token = localStorage.getItem('token');
+    if (!token) return null;
+
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(token);
+    return decodedToken;
+  }
+
+  isAdmin() {
+    const token = localStorage.getItem('token');
+    if (!token) return null;
+
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(token);
+    return decodedToken.isAdmin;
+  }
+
+  isLoggedIn() {
+    const token = localStorage.getItem('token');
+    if (!token) return null;
+
+    const helper = new JwtHelperService();
+    return helper.isTokenExpired(token);
+  }
+
+  logout() {
+    localStorage.removeItem('token');
   }
 
   handleError(error) {

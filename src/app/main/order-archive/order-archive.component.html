@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Client CIN</th>
+                <th>Client Name</th>
+                <th>Client phone</th>
+                <th>Car Registration Number</th>
+                <th>order Date</th>
+                <th>Rental Start Date</th>
+                <th>Rental End Date</th>
+                <th>Delete Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ao of archivedOrders">
+                <td>{{ ao?.ID_Client?.CIN }}</td>
+                <td>{{ ao?.ID_Client?.FirstName }}</td>
+                <td>{{ ao?.ID_Client?.LastName }}</td>
+                <td>{{ ao?.ID_Car?.Registration_Number }}</td>
+                <td>{{ ao?.Order_Date | date }}</td>
+                <td>{{ ao?.Rent_Start_Date | date }}</td>
+                <td>{{ ao?.Rent_End_Date | date }}</td>
+                <td>{{ ao?.Delete_Date | date }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
