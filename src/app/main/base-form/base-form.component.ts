@@ -41,6 +41,7 @@ export class BaseFormComponent implements OnInit {
       } else {
         form.form.setErrors({ unknownError: true });
       }
+
     });
   }
 
@@ -54,6 +55,7 @@ export class BaseFormComponent implements OnInit {
       } else {
         form.form.setErrors({ unknownError: true });
       }
+      console.log(err);
     });
   }
 
