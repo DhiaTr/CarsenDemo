@@ -61,11 +61,10 @@ import { OrderArchiveService } from './services/order-archive.service';
   imports: [
     CommonModule,
     MainRoutingModule,
-    BrowserModule,
-    AppRoutingModule,
     FormsModule,
     HttpClientModule,
     NgbModule
+    // error was here importing another mod router qm
   ],
   providers: [
     AuthService,
@@ -77,27 +76,5 @@ import { OrderArchiveService } from './services/order-archive.service';
     OrdersService,
     OrderArchiveService
   ],
-  exports: [
-    MainComponent,
-    NavBarComponent,
-    CategoriesComponent,
-    HomeComponent,
-    BasesComponent,
-    BaseFormComponent,
-    AgentsComponent,
-    AgentFormComponent,
-    CarsComponent,
-    CarFormComponent,
-    ClientsComponent,
-    ClientFormComponent,
-    MechanicsComponent,
-    MechanicFormComponent,
-    RepairsComponent,
-    RepairFormComponent,
-    OrdersComponent,
-    OrderFormComponent,
-    OrderArchiveComponent,
-  ],
-  bootstrap: [AppComponent]
 })
 export class MainModule { }

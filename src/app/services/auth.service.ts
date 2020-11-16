@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { map, catchError, switchMap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { map, catchError } from 'rxjs/operators';
 import { invalidMailOrPassword } from '../main/common/invalid-mail-or-password';
 import { AppError } from '../main/common/app-error';
 import { throwError } from 'rxjs';

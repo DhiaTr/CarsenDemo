@@ -17,32 +17,39 @@ import { RepairsComponent } from './repairs/repairs.component';
 import { OrdersComponent } from './orders/orders.component';
 import { OrderFormComponent } from './order-form/order-form.component';
 import { OrderArchiveComponent } from './order-archive/order-archive.component';
+import { MainComponent } from './main.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'categorys', component: CategoriesComponent },
-  { path: 'bases', component: BasesComponent },
-  { path: 'newBase/:id', component: BaseFormComponent },
-  { path: 'newBase', component: BaseFormComponent },
-  { path: 'agents', component: AgentsComponent },
-  { path: 'agentForm/:id', component: AgentFormComponent },
-  { path: 'agentForm', component: AgentFormComponent },
-  { path: 'cars', component: CarsComponent },
-  { path: 'carForm/:id', component: CarFormComponent },
-  { path: 'carForm', component: CarFormComponent },
-  { path: 'clientForm/:id', component: ClientFormComponent },
-  { path: 'clientForm', component: ClientFormComponent },
-  { path: 'clients', component: ClientsComponent },
-  { path: 'mechanicsForm/:id', component: MechanicFormComponent },
-  { path: 'mechanicsForm', component: MechanicFormComponent },
-  { path: 'mechanics', component: MechanicsComponent },
-  { path: 'repairForm/:id', component: RepairFormComponent },
-  { path: 'repairForm', component: RepairFormComponent },
-  { path: 'repairs', component: RepairsComponent },
-  { path: 'orders', component: OrdersComponent },
-  { path: 'orderForm/:id', component: OrderFormComponent },
-  { path: 'orderForm', component: OrderFormComponent },
-  { path: 'ordersArchive', component: OrderArchiveComponent },
+  {
+    path: '',
+    component: MainComponent,
+    children: [
+      { path: 'home', component: HomeComponent },
+      { path: 'categorys', component: CategoriesComponent },
+      { path: 'bases', component: BasesComponent },
+      { path: 'newBase/:id', component: BaseFormComponent },
+      { path: 'newBase', component: BaseFormComponent },
+      { path: 'agents', component: AgentsComponent },
+      { path: 'agentForm/:id', component: AgentFormComponent },
+      { path: 'agentForm', component: AgentFormComponent },
+      { path: 'cars', component: CarsComponent },
+      { path: 'carForm/:id', component: CarFormComponent },
+      { path: 'carForm', component: CarFormComponent },
+      { path: 'clientForm/:id', component: ClientFormComponent },
+      { path: 'clientForm', component: ClientFormComponent },
+      { path: 'clients', component: ClientsComponent },
+      { path: 'mechanicsForm/:id', component: MechanicFormComponent },
+      { path: 'mechanicsForm', component: MechanicFormComponent },
+      { path: 'mechanics', component: MechanicsComponent },
+      { path: 'repairForm/:id', component: RepairFormComponent },
+      { path: 'repairForm', component: RepairFormComponent },
+      { path: 'repairs', component: RepairsComponent },
+      { path: 'orders', component: OrdersComponent },
+      { path: 'orderForm/:id', component: OrderFormComponent },
+      { path: 'orderForm', component: OrderFormComponent },
+      { path: 'ordersArchive', component: OrderArchiveComponent },
+    ]
+  }
 ];
 
 @NgModule({

@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { AuthService } from './services/auth.service';
 import { MainModule } from './main/main.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import { MainModule } from './main/main.module';
     AppComponent,
     LoginComponent,
     SignupComponent,
-
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +25,6 @@ import { MainModule } from './main/main.module';
     FormsModule,
     HttpClientModule,
     NgbModule,
-    MainModule
   ],
   providers: [
     AuthService,
