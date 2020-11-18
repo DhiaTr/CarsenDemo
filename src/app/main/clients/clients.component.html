@@ -21,7 +21,7 @@
         <td>{{ c.phone }}</td>
         <td>{{ c.address }}</td>
         <td>
-          <a class="btn btn-secondary mx-1" [routerLink]="['/clientForm/', c._id]">Edit</a>
+          <a class="btn btn-secondary mx-1" [routerLink]="['/main/clientForm/', c._id]">Edit</a>
           <a class="btn btn-danger text-light mx-1" (click)="delete(c._id)">delete</a>
         </td>
       </tr>

@@ -25,7 +25,7 @@
                 <td>{{ m?.ID_Base?.phone }}</td>
                 <td>{{ m?.ID_Base?.adress }}</td>
                 <td>
-                    <a class="btn btn-secondary mx-1" [routerLink]="['/mechanicsForm/', m._id]">Edit</a>
+                    <a class="btn btn-secondary mx-1" [routerLink]="['/main/mechanicsForm/', m._id]">Edit</a>
                     <a class="btn btn-danger text-light mx-1" (click)="delete(m._id)">delete</a>
                 </td>
             </tr>

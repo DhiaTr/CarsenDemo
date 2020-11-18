@@ -21,7 +21,7 @@
                 <td>{{ r?.Repair_Date | date }}</td>
                 <td>{{ r?.costs }}</td>
                 <td>
-                    <a class="btn btn-secondary mx-1" [routerLink]="['/repairForm/', r._id]">Edit</a>
+                    <a class="btn btn-secondary mx-1" [routerLink]="['/main/repairForm/', r._id]">Edit</a>
                     <a class="btn btn-danger text-light mx-1" (click)="delete(r._id)">delete</a>
                 </td>
             </tr>
