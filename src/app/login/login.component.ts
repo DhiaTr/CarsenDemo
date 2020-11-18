@@ -19,7 +19,7 @@ export class LoginComponent {
   submit(form) {
     this.auth.login(form.value).subscribe(result => {
       if (result)
-        this.router.navigate(['/home']);
+        this.router.navigate(['/main/home']);
     },
       (err: Response) => {
         console.log(err);
