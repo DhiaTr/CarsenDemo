@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { MainModule } from './main/main.module';
 import { NotFoundComponent } from './not-found/not-found.component';
+import {AuthGuard} from "./services/auth-guard.service";
 
 
 const routes: Routes = [
@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   {
     path: 'main',
-    loadChildren: './main/main.module#MainModule'
+    loadChildren: './main/main.module#MainModule',
+    canActivate: [AuthGuard]
   },
   { path: '**', component: NotFoundComponent },
 ];

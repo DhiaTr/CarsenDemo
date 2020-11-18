@@ -49,10 +49,14 @@ export class AuthService {
 
   isLoggedIn() {
     const token = localStorage.getItem('token');
+    console.log(token);
     if (!token) return null;
 
+
     const helper = new JwtHelperService();
-    return helper.isTokenExpired(token);
+    console.log(helper.isTokenExpired(token));
+    return !helper.isTokenExpired(token);
+
   }
 
   logout() {
