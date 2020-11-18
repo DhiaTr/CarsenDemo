@@ -24,6 +24,7 @@ const routes: Routes = [
     path: '',
     component: MainComponent,
     children: [
+      { path: '', redirectTo: '/main/home', pathMatch: 'full'},
       { path: 'home', component: HomeComponent },
       { path: 'categorys', component: CategoriesComponent },
       { path: 'bases', component: BasesComponent },
