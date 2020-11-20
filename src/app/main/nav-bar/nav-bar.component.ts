@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'nav-bar',
@@ -8,11 +9,16 @@ import { AuthService } from '../../services/auth.service';
 })
 export class NavBarComponent {
   user;
+  isAdmin;
   public isMenuCollapsed = true;
 
-  constructor(private auth: AuthService) {
+  constructor(
+    private auth: AuthService,
+    private router: Router
+  ) {
     this.refreshUserState();
-
+    this.isAdmin = auth.isAdmin();
+    console.log(this.isAdmin);
   }
 
   refreshUserState() {
@@ -22,6 +28,7 @@ export class NavBarComponent {
 
   logout() {
     this.auth.logout();
+    this.router.navigate(['/login']);
     this.refreshUserState();
   }
 

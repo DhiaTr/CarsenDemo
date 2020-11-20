@@ -21,13 +21,10 @@ import { RepairFormComponent } from './repair-form/repair-form.component';
 import { OrdersComponent } from './orders/orders.component';
 import { OrderFormComponent } from './order-form/order-form.component';
 import { OrderArchiveComponent } from './order-archive/order-archive.component';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from '../services/auth.service';
-import { AppComponent } from '../app.component';
 import { BaseService } from './services/base.service';
 import { AgentService } from './services/agent.service';
 import { CarsService } from './services/cars.service';
@@ -35,6 +32,7 @@ import { ClientService } from './services/client.service';
 import { MechanicsService } from './services/mechanics.service';
 import { OrdersService } from './services/orders.service';
 import { OrderArchiveService } from './services/order-archive.service';
+import {AdminGuard} from "./services/admin-guard.service";
 
 @NgModule({
   declarations: [
@@ -74,7 +72,8 @@ import { OrderArchiveService } from './services/order-archive.service';
     ClientService,
     MechanicsService,
     OrdersService,
-    OrderArchiveService
+    OrderArchiveService,
+    AdminGuard
   ],
 })
 export class MainModule { }

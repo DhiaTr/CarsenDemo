@@ -18,6 +18,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { OrderFormComponent } from './order-form/order-form.component';
 import { OrderArchiveComponent } from './order-archive/order-archive.component';
 import { MainComponent } from './main.component';
+import { AdminGuard } from './services/admin-guard.service';
 
 const routes: Routes = [
   {
@@ -28,27 +29,27 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'categorys', component: CategoriesComponent },
       { path: 'bases', component: BasesComponent },
-      { path: 'newBase/:id', component: BaseFormComponent },
-      { path: 'newBase', component: BaseFormComponent },
-      { path: 'agents', component: AgentsComponent },
-      { path: 'agentForm/:id', component: AgentFormComponent },
-      { path: 'agentForm', component: AgentFormComponent },
+      { path: 'newBase/:id', component: BaseFormComponent, canActivate: [AdminGuard] },
+      { path: 'newBase', component: BaseFormComponent, canActivate: [AdminGuard] },
+      { path: 'agents', component: AgentsComponent, canActivate: [AdminGuard] },
+      { path: 'agentForm/:id', component: AgentFormComponent, canActivate: [AdminGuard] },
+      { path: 'agentForm', component: AgentFormComponent, canActivate: [AdminGuard] },
       { path: 'cars', component: CarsComponent },
       { path: 'carForm/:id', component: CarFormComponent },
       { path: 'carForm', component: CarFormComponent },
       { path: 'clientForm/:id', component: ClientFormComponent },
       { path: 'clientForm', component: ClientFormComponent },
       { path: 'clients', component: ClientsComponent },
-      { path: 'mechanicsForm/:id', component: MechanicFormComponent },
-      { path: 'mechanicsForm', component: MechanicFormComponent },
-      { path: 'mechanics', component: MechanicsComponent },
-      { path: 'repairForm/:id', component: RepairFormComponent },
-      { path: 'repairForm', component: RepairFormComponent },
-      { path: 'repairs', component: RepairsComponent },
+      { path: 'mechanicsForm/:id', component: MechanicFormComponent, canActivate: [AdminGuard] },
+      { path: 'mechanicsForm', component: MechanicFormComponent, canActivate: [AdminGuard] },
+      { path: 'mechanics', component: MechanicsComponent, canActivate: [AdminGuard] },
+      { path: 'repairForm/:id', component: RepairFormComponent, canActivate: [AdminGuard] },
+      { path: 'repairForm', component: RepairFormComponent, canActivate: [AdminGuard] },
+      { path: 'repairs', component: RepairsComponent, canActivate: [AdminGuard] },
       { path: 'orders', component: OrdersComponent },
-      { path: 'orderForm/:id', component: OrderFormComponent },
+      { path: 'orderForm/:id', component: OrderFormComponent, canActivate: [AdminGuard] },
       { path: 'orderForm', component: OrderFormComponent },
-      { path: 'ordersArchive', component: OrderArchiveComponent },
+      { path: 'ordersArchive', component: OrderArchiveComponent, canActivate: [AdminGuard] },
     ]
   }
 ];

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AgentService } from '../services/agent.service';
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-agents',
@@ -10,7 +11,9 @@ export class AgentsComponent implements OnInit {
 
   agents;
 
-  constructor(private agentsService: AgentService) { }
+
+  constructor(
+    private agentsService: AgentService) { }
 
   ngOnInit() {
     this.updateView();

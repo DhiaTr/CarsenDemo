@@ -11,7 +11,7 @@
                 <a class="nav-link" routerLink="/main/bases" (click)="isMenuCollapsed = true">Bases</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/main/agents" (click)="isMenuCollapsed = true">agents</a>
+                <a *ngIf="isAdmin" class="nav-link" routerLink="/main/agents" (click)="isMenuCollapsed = true">agents</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" routerLink="/main/cars" (click)="isMenuCollapsed = true">Cars</a>
@@ -20,7 +20,7 @@
                 <a class="nav-link" routerLink="/main/clients" (click)="isMenuCollapsed = true">Clients</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/main/mechanics" (click)="isMenuCollapsed = true">Mechanics</a>
+                <a *ngIf="isAdmin" class="nav-link" routerLink="/main/mechanics" (click)="isMenuCollapsed = true">Mechanics</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" routerLink="/main/repairs" (click)="isMenuCollapsed = true">Repairs</a>
@@ -29,7 +29,7 @@
                 <a class="nav-link" routerLink="/main/orders" (click)="isMenuCollapsed = true">Orders</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/main/ordersArchive" (click)="isMenuCollapsed = true">Archived Orders</a>
+                <a  *ngIf="isAdmin" class="nav-link" routerLink="/main/ordersArchive" (click)="isMenuCollapsed = true">Archived Orders</a>
             </li>
         </ul>
         <ul class="navbar-nav">
@@ -40,7 +40,7 @@
                 <div ngbDropdown class="d-inline-block">
                     <a class="nav-link" (click)="isMenuCollapsed = true" ngbDropdownToggle>{{ user.Name }}</a>
                     <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-menu-right">
-                        <button ngbDropdownItem (click)="logout()">Logout</button>
+                        <button ngbDropdownItem style="{cursor: pointer}" (click)="logout()">Logout</button>
                     </div>
                 </div>
             </li>
