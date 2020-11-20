@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <p>
-        <a routerLink="/main/newBase" class="btn btn-primary">new base</a>
+        <a *ngIf="isAdmin" routerLink="/main/newBase" class="btn btn-primary">new base</a>
     </p>
     <table class="table">
         <thead>
