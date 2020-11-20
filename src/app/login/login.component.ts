@@ -11,6 +11,8 @@ import { invalidMailOrPassword } from '../main/common/invalid-mail-or-password';
 })
 export class LoginComponent {
 
+  isAdmin;
+
   constructor(
     private auth: AuthService,
     private router: Router

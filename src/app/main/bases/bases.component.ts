@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseService } from '../services/base.service';
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-bases',
@@ -8,8 +9,14 @@ import { BaseService } from '../services/base.service';
 })
 export class BasesComponent implements OnInit {
   bases;
+  isAdmin;
 
-  constructor(private baseService: BaseService) { }
+  constructor(
+    private baseService: BaseService,
+    private auth: AuthService
+  ) {
+    this.isAdmin = auth.isAdmin();
+  }
 
   ngOnInit() {
     this.updateView();

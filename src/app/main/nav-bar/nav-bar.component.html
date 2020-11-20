@@ -23,7 +23,7 @@
                 <a *ngIf="isAdmin" class="nav-link" routerLink="/main/mechanics" (click)="isMenuCollapsed = true">Mechanics</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/main/repairs" (click)="isMenuCollapsed = true">Repairs</a>
+                <a *ngIf="isAdmin" class="nav-link" routerLink="/main/repairs" (click)="isMenuCollapsed = true">Repairs</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" routerLink="/main/orders" (click)="isMenuCollapsed = true">Orders</a>
