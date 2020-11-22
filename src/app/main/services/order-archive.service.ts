@@ -3,16 +3,17 @@ import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { AppError } from '../common/app-error';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderArchiveService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private auth: AuthService) { }
 
   getAll() {
-    return this.http.get('http://localhost:3000/api/archived_orders', this.getHeader())
+    return this.http.get(this.auth.address + '/api/archived_orders', this.getHeader())
       .pipe(catchError(this.handleError));
   }
 

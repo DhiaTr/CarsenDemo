@@ -5,37 +5,37 @@ import { catchError } from 'rxjs/operators';
 import { InvalidData } from '../common/invalid-data';
 import { AppError } from '../common/app-error';
 import { AgentNotExistant } from '../common/agent-not-existant';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AgentService {
 
-  constructor(private http: HttpClient) { }
-
+  constructor(private http: HttpClient, private auth:AuthService) { }
 
   deleteOne(id) {
-    return this.http.delete('http://localhost:3000/api/agents/' + id, this.getHeader())
+    return this.http.delete( this.auth.address + '/api/agents/' + id, this.getHeader())
       .pipe(catchError(this.handleError));
   }
 
   getOne(id) {
-    return this.http.get('http://localhost:3000/api/agents/' + id, this.getHeader())
+    return this.http.get(this.auth.address + '/api/agents/' + id, this.getHeader())
       .pipe(catchError(this.handleError));
   }
 
   update(id, agentData) {
-    return this.http.put('http://localhost:3000/api/agents/' + id, agentData, this.getHeader())
+    return this.http.put(this.auth.address + '/api/agents/' + id, agentData, this.getHeader())
       .pipe(catchError(this.handleError));
   }
 
   addOne(agentData) {
-    return this.http.post('http://localhost:3000/api/agents/', agentData, this.getHeader())
+    return this.http.post(this.auth.address + '/api/agents/', agentData, this.getHeader())
       .pipe(catchError(this.handleError));
   }
 
   getAll() {
-    return this.http.get('http://localhost:3000/api/agents/', this.getHeader())
+    return this.http.get(this.auth.address + '/api/agents/', this.getHeader())
       .pipe(catchError(this.handleError));
   }
 

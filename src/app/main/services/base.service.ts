@@ -5,28 +5,29 @@ import { throwError } from 'rxjs';
 import { AppError } from '../common/app-error';
 import { InvalidData } from '../common/invalid-data';
 import { BaseNotExistant } from '../common/base-not-existant';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BaseService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private auth: AuthService) { }
 
 
   delete(id) {
-    return this.http.delete('http://localhost:3000/api/base/' + id, this.getHeader())
+    return this.http.delete(this.auth.address + '/api/base/' + id, this.getHeader())
       .pipe(catchError(this.handleError));
   }
 
 
   getAll() {
-    return this.http.get('http://localhost:3000/api/base', this.getHeader())
+    return this.http.get(this.auth.address + '/api/base', this.getHeader())
       .pipe(catchError(this.handleError));
   }
 
   getOne(id) {
-    return this.http.get('http://localhost:3000/api/base/' + id, this.getHeader())
+    return this.http.get(this.auth.address + '/api/base/' + id, this.getHeader())
       .pipe(catchError(this.handleError));
   }
 
@@ -36,12 +37,12 @@ export class BaseService {
   }
 
   add(baseInfo) {
-    return this.http.post('http://localhost:3000/api/base', baseInfo, this.getHeader())
+    return this.http.post(this.auth.address + '/api/base', baseInfo, this.getHeader())
       .pipe(catchError(this.handleError));
   }
 
   update(id, baseInfo) {
-    return this.http.put('http://localhost:3000/api/base/' + id, baseInfo, this.getHeader())
+    return this.http.put(this.auth.address + '/api/base/' + id, baseInfo, this.getHeader())
       .pipe(catchError(this.handleError));
   }
 

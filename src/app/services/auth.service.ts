@@ -10,10 +10,12 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   providedIn: 'root'
 })
 export class AuthService {
+
+  address = 'https://fast-temple-16906.herokuapp.com';
   constructor(private http: HttpClient) { }
 
   login(credentials) {
-    return this.http.post('http://localhost:3000/api/auth', credentials).pipe(
+    return this.http.post( this.address + '/api/auth', credentials).pipe(
       catchError(this.handleError),
       map((response: any) => {
         const result = response;
@@ -26,7 +28,7 @@ export class AuthService {
   }
 
   signup(clientData) {
-    return this.http.post('http://localhost:3000/api/agents', clientData).pipe(catchError(this.handleError));
+    return this.http.post(this.address + '/api/agents', clientData).pipe(catchError(this.handleError));
   }
 
   getCurrentUser() {

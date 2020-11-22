@@ -3,42 +3,43 @@ import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { AppError } from '../common/app-error';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private auth:AuthService) { }
 
 
   getAll() {
     return this.http
-      .get('http://localhost:3000/api/clients', this.getHeader())
+      .get(this.auth.address + '/api/clients', this.getHeader())
       .pipe(catchError(this.handleError));
   }
 
   getOne(id) {
     return this.http
-      .get('http://localhost:3000/api/clients/' + id, this.getHeader())
+      .get(this.auth.address + '/api/clients/' + id, this.getHeader())
       .pipe(catchError(this.handleError));
   }
 
   add(client) {
     return this.http
-      .post('http://localhost:3000/api/clients', client, this.getHeader())
+      .post(this.auth.address + '/api/clients', client, this.getHeader())
       .pipe(catchError(this.handleError));
   }
 
   delete(id) {
     return this.http
-      .delete('http://localhost:3000/api/clients/' + id, this.getHeader())
+      .delete(this.auth.address + '/api/clients/' + id, this.getHeader())
       .pipe(catchError(this.handleError));
   }
 
   update(id, client) {
     return this.http
-      .put('http://localhost:3000/api/clients/' + id, client, this.getHeader())
+      .put(this.auth.address + '/api/clients/' + id, client, this.getHeader())
       .pipe(catchError(this.handleError));
   }
 

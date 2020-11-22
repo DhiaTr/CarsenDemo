@@ -3,36 +3,37 @@ import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { AppError } from '../common/app-error';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrdersService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private auth:AuthService) { }
 
   getAll() {
-    return this.http.get('http://localhost:3000/api/orders', this.getHeader())
+    return this.http.get(this.auth.address + '/api/orders', this.getHeader())
       .pipe(catchError(this.handleError));
   }
 
   getOne(id) {
-    return this.http.get('http://localhost:3000/api/orders/' + id, this.getHeader())
+    return this.http.get(this.auth.address + '/api/orders/' + id, this.getHeader())
       .pipe(catchError(this.handleError));
   }
 
   add(order) {
-    return this.http.post('http://localhost:3000/api/orders', order, this.getHeader())
+    return this.http.post(this.auth.address + '/api/orders', order, this.getHeader())
       .pipe(catchError(this.handleError));
   }
 
   update(id, order) {
-    return this.http.put('http://localhost:3000/api/orders/' + id, order, this.getHeader())
+    return this.http.put(this.auth.address + '/api/orders/' + id, order, this.getHeader())
       .pipe(catchError(this.handleError));
   }
 
   delete(id) {
-    return this.http.delete('http://localhost:3000/api/orders/' + id, this.getHeader())
+    return this.http.delete(this.auth.address + '/api/orders/' + id, this.getHeader())
       .pipe(catchError(this.handleError));
   }
 
